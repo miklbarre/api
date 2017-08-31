@@ -1,0 +1,4 @@
+get_all_movies:
+    path:     /movies/getAll
+    defaults: {_controller: MovieBundle:Movie:getAll }
+    methods:  [GET]
