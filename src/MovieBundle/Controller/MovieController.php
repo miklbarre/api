@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  * @package MovieBundle\Controller
  */
 class MovieController extends Controller {
-
     /**
     * @Annotation\ApiDoc(
     *     section="Film",
