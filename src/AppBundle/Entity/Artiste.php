@@ -6,9 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Artiste
- *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ArtisteRepository")
  * @ORM\Table(name="Artiste")
- * @ORM\Entity
  */
 class Artiste
 {
@@ -59,8 +58,6 @@ class Artiste
     {
         $this->id = $id;
     }
-
-
 
 }
 

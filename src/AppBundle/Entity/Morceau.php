@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Morceau
  *
- * @ORM\Table(name="Morceau")
+ * @ORM\Table(name="Morceau", indexes={@ORM\Index(name="AlbumMorceau", columns={"id_album"})})
  * @ORM\Entity
  */
 class Morceau
@@ -34,6 +34,16 @@ class Morceau
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var \AppBundle\Entity\Album
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Album")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_album", referencedColumnName="id")
+     * })
+     */
+    private $idAlbum;
 
     /**
      * @return string
@@ -82,5 +92,25 @@ class Morceau
     {
         $this->id = $id;
     }
+
+    /**
+     * @return Album
+     */
+    public function getIdAlbum()
+    {
+        return $this->idAlbum;
+    }
+
+    /**
+     * @param Album $idAlbum
+     */
+    public function setIdAlbum($idAlbum)
+    {
+        $this->idAlbum = $idAlbum;
+    }
+
+
+
+
 }
 

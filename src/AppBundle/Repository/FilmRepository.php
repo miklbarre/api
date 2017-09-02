@@ -11,5 +11,7 @@ namespace AppBundle\Repository;
 
 class FilmRepository
 {
-
+    public function tetx() {
+        die('dfoo');
+    }
 }

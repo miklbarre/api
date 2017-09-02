@@ -32,7 +32,7 @@ class MovieController extends Controller {
     public function getAllAction () {
         $tabMovies = array();
         try {
-            $movies = $this->getDoctrine()->getManager()->getRepository('AppBundle:Film')->findAll();
+            $movies = $this->getDoctrine()->getManager('film')->getRepository('AppBundle:Film')->findAll();
         }
         catch (DatabaseObjectNotFoundException $e) {
             return new JsonResponse("Error Request",400);
