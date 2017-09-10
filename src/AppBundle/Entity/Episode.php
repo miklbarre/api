@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Episode
  *
- * @ORM\Table(name="episode")
+ * @ORM\Table(name="episode", indexes={@ORM\Index(name="lkSerieEpisode", columns={"id_serie"})})
  * @ORM\Entity
  */
 class Episode
@@ -18,13 +18,6 @@ class Episode
      * @ORM\Column(name="num_saison", type="integer", nullable=false)
      */
     private $numSaison;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_serie", type="integer", nullable=false)
-     */
-    private $idSerie;
 
     /**
      * @var integer
@@ -50,6 +43,16 @@ class Episode
     private $id;
 
     /**
+     * @var \AppBundle\Entity\Serie
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Serie")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_serie", referencedColumnName="id")
+     * })
+     */
+    private $idSerie;
+
+    /**
      * @return int
      */
     public function getNumSaison()
@@ -63,22 +66,6 @@ class Episode
     public function setNumSaison($numSaison)
     {
         $this->numSaison = $numSaison;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdSerie()
-    {
-        return $this->idSerie;
-    }
-
-    /**
-     * @param int $idSerie
-     */
-    public function setIdSerie($idSerie)
-    {
-        $this->idSerie = $idSerie;
     }
 
     /**
@@ -129,7 +116,21 @@ class Episode
         $this->id = $id;
     }
 
+    /**
+     * @return Serie
+     */
+    public function getIdSerie()
+    {
+        return $this->idSerie;
+    }
 
+    /**
+     * @param Serie $idSerie
+     */
+    public function setIdSerie($idSerie)
+    {
+        $this->idSerie = $idSerie;
+    }
 
 }
 

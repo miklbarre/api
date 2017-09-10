@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Serie
  *
  * @ORM\Table(name="serie")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SeriesRepository")
  */
 class Serie
 {
@@ -59,5 +59,6 @@ class Serie
     {
         $this->id = $id;
     }
+
 }
 

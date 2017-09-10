@@ -1,4 +1,4 @@
 music_getall:
-    path:     /musics/getall
-    defaults: { _controller: MusicBundle:Musics:getAll }
+    path:     /musics/getallalbumbyartist
+    defaults: { _controller: MusicBundle:Musics:getAllAlbumByArtist }
     methods: [GET]

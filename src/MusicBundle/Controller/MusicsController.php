@@ -11,14 +11,13 @@ use AppBundle\Entity\Artiste;
 use Nelmio\ApiDocBundle\Annotation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\VarDumper\VarDumper;
 
 class MusicsController extends Controller {
 
     /**
      * @Annotation\ApiDoc(
      *     section="Musique",
-     *     description="get All Musics",
+     *     description="get All Artiste with album",
      *     resource=true,
      *     statusCodes={
                 200="Good",
@@ -26,9 +25,9 @@ class MusicsController extends Controller {
      *     }
      * )
      */
-    public function getAllAction () {
+    public function getAllAlbumByArtistAction () {
         $musicManager = $this->getDoctrine()->getManager('music');
-        $musics = $musicManager->getRepository(Artiste::class)->getAll();
+        $musics = $musicManager->getRepository(Artiste::class)->getAllAlbumByArtist();
         $tabMusics = array();
         foreach ($musics as $music) {
             $tabMusics [] = $music;

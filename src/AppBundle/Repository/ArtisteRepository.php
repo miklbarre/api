@@ -13,12 +13,11 @@ use Doctrine\ORM\EntityRepository;
 
 class ArtisteRepository extends EntityRepository
 {
-    public function  getAll () {
+    public function  getAllAlbumByArtist () {
         return $this->_em->createQuery("SELECT a.id as idArtiste, a.nomArtiste as Artiste,
-              al.nomAlbum as Album, al.id as idAlbum, m.nomChanson as Chanson 
-            FROM AppBundle:Artiste a, AppBundle:Album al, AppBundle:Morceau m
-            WHERE a.id = al.idArtiste
-            AND al.id = m.idAlbum")->getResult();
+              al.nomAlbum as Album, al.id as idAlbum
+            FROM AppBundle:Artiste a, AppBundle:Album al
+            WHERE a.id = al.idArtiste")->getResult();
     }
 
 }

@@ -1,0 +1,4 @@
+series_homepage:
+    path:     series/getseries
+    defaults: { _controller: SeriesBundle:Series:getSeries}
+    methods: [GET]
