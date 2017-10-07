@@ -2,3 +2,8 @@ get_all_movies:
     path:     /movies/getAll
     defaults: {_controller: MovieBundle:Movie:getAll }
     methods:  [GET]
+
+searchçmovies:
+    path:     /movies/search
+    defaults: {_controller: MovieBundle:Movie:search}
+    methods:  [GET]

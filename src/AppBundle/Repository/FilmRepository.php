@@ -9,9 +9,17 @@
 namespace AppBundle\Repository;
 
 
-class FilmRepository
+use Doctrine\ORM\EntityRepository;
+
+class FilmRepository extends EntityRepository
 {
-    public function tetx() {
-        die('dfoo');
+    public function searchMovies($search) {
+        return $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('f')
+            ->from('AppBundle:Film', 'f')
+            ->where('f.titre LIKE :search')
+            ->setParameter('search', '%'.$search.'%')
+            ->getQuery()->getResult();
     }
 }
