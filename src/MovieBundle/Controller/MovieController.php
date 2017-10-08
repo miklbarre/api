@@ -13,7 +13,6 @@ use Nelmio\ApiDocBundle\Annotation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class MovieController
@@ -34,7 +33,11 @@ class MovieController extends Controller {
     public function getAllAction () {
         $tabMovies = array();
         try {
-            $movies = $this->getDoctrine()->getManager('film')->getRepository('AppBundle:Film')->findAll();
+            /**
+             * @var $repo FilmRepository
+             */
+            $repo = $this->getDoctrine()->getManager('film')->getRepository(Film::class);
+            $movies = $repo->getAllMovies();
         }
         catch (DatabaseObjectNotFoundException $e) {
             return new JsonResponse("Error Request",400);
@@ -53,7 +56,7 @@ class MovieController extends Controller {
      *     section="Film",
      *     description="search Movies",
      *     resource=true,
-     *  requirements={
+     *     requirements={
      *      {
      *          "name"="search",
      *          "dataType"="text",

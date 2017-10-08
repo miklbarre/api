@@ -22,4 +22,13 @@ class FilmRepository extends EntityRepository
             ->setParameter('search', '%'.$search.'%')
             ->getQuery()->getResult();
     }
+
+    public function getAllMovies(){
+        return $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('f')
+            ->from('AppBundle:Film', 'f')
+            ->orderBy('f.titre','ASC')
+            ->getQuery()->getResult();
+    }
 }

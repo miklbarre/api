@@ -20,4 +20,12 @@ class ArtisteRepository extends EntityRepository
             WHERE a.id = al.idArtiste")->getResult();
     }
 
+    public function searchMusics($search) {
+        return $this->_em->createQuery("SELECT a.id as idArtiste, a.nomArtiste as Artiste,
+              al.nomAlbum as Album, al.id as idAlbum
+            FROM AppBundle:Artiste a, AppBundle:Album al
+            WHERE a.id = al.idArtiste
+            AND (a.nomArtiste LIKE '%".$search."%' OR al.nomAlbum LIKE '%".$search."%')")->getResult();
+    }
+
 }
