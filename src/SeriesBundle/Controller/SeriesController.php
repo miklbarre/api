@@ -23,7 +23,7 @@ class SeriesController extends Controller {
      *     description="get all series",
      *     resource=true,
      *     statusCodes={
-                200="Good",
+     *          200="Good",
      *          400="Bad request"
      *     }
      * )

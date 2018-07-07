@@ -23,7 +23,7 @@ class MusicsController extends Controller {
      *     description="get All Artiste with album",
      *     resource=true,
      *     statusCodes={
-                200="Good",
+     *          200="Good",
      *          400="Bad request"
      *     }
      * )
@@ -51,7 +51,7 @@ class MusicsController extends Controller {
      *      }
      *  },
      *     statusCodes={
-                200="Good",
+     *          200="Good",
      *          400="Bad request"
      *     }
      * )

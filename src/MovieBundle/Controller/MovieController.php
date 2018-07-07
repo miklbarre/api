@@ -25,7 +25,7 @@ class MovieController extends Controller {
     *     description="get All Movies",
     *     resource=true,
     *     statusCodes={
-                200="Good",
+    *          200="Good",
     *          400="Bad request"
     *     }
     * )
@@ -64,7 +64,7 @@ class MovieController extends Controller {
      *      }
      *  },
      *     statusCodes={
-    200="Good",
+     *          200="Good",
      *          400="Bad request"
      *     }
      * )
